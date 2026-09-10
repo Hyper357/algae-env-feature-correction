@@ -1,0 +1,23 @@
+random_seed: 20260910
+id_column: station_id
+target: chlorophyll
+candidate_environment_variables:
+  - salinity
+  - pH
+  - temperature
+  - DO
+  - ORP
+  - turbidity
+
+primary_environment_variable: salinity
+reference_state: train_median
+correction_model: linear
+predictor_model: ridge
+validation: leave_one_station_out
+
+stage_gate:
+  min_relative_mae_improvement: 0.15
+  require_r2_improvement: true
+  permutation_repeats: 1000
+  permutation_alpha: 0.05
+  extreme_site_sensitivity: true
