@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+results/
+artifacts/
+data/*.csv
+data/*.xlsx
+data/*.zip
+!data/README.md
