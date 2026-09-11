@@ -70,10 +70,10 @@ python -m venv .venv
 # Windows
 .venv\\Scripts\\activate
 pip install -r requirements.txt
-python src/validate_env_correction.py --features data/features.csv --metadata data/stations.csv --env salinity --target chlorophyll
+python src/run_p01.py --config config/p01.yaml
 ```
 
-脚本要求 `features.csv` 与 `stations.csv` 都包含 `station_id`。
+`config/p01.yaml` 中的数据目录指向仓库外部的现场数据目录。若使用脱敏 CSV 接口，字段仍应包含 `station_id`。
 
 ## Go / No-Go 判定
 
@@ -94,3 +94,15 @@ python src/validate_env_correction.py --features data/features.csv --metadata da
 > 基于环境状态约束的多波长藻类荧光特征校正方法及传感系统
 
 而不是“多参数机器学习藻类分类”。详见 `docs/PATENT_EVIDENCE_BOUNDARY.md`。
+
+## P01 实际运行状态
+
+P01 已按 `config/p01.yaml` 完整运行并提交结果。当前决策为 **RED**：29 个有效 F97 Pro 站点的盐度显式校正使 LOSO MAE 从 7.273 增至 8.283（相对恶化 13.88%），1000 次置换检验 p=0.643，极端站点敏感性也不稳定。该结果不支持进入环境补偿专利主路线；详见 `P01_DECISION.md` 和 `reports/P01_environment_correction_audit.md`。
+
+运行入口：
+
+```bash
+python src/run_p01.py --config config/p01.yaml
+```
+
+原始 Excel、EEM CSV、实验室数据和 ZIP 均作为仓库外部输入，不提交 GitHub。

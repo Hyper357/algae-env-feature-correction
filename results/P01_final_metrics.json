@@ -1,0 +1,24 @@
+{
+  "decision": "RED",
+  "n_stations": 29,
+  "raw_metrics": {
+    "MAE": 7.273336136560735,
+    "RMSE": 9.423564063790298,
+    "R2": 0.8913825147908196,
+    "Spearman_rho": 0.6684729064039406
+  },
+  "corrected_salinity_metrics": {
+    "MAE": 8.283193205595424,
+    "RMSE": 10.721240876775603,
+    "R2": 0.8594083668547623,
+    "Spearman_rho": 0.5645320197044333
+  },
+  "relative_mae_improvement": -0.1388437231655582,
+  "permutation_p": 0.6433566433566433,
+  "permutation_repeats": 1000,
+  "environment_only_salinity_mae": 18.878102806833216,
+  "proxy_gap_environment_only_minus_corrected": 10.594909601237791,
+  "sensitivity_positive_fraction": 0.3333333333333333,
+  "selected_feature_family": "raw_intensity",
+  "data_root_record": "第三篇专利审核测试"
+}
